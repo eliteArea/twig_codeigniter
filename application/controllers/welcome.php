@@ -12,8 +12,8 @@ class Welcome extends CI_Controller {
   // execute code
     $data['title'] = "Testing Twig!!";
     
-    $this->user_m->listing();
-  
+    $data['query'] = $this->user_m->listing();
+    
   //render template
     $this->twig->display('view.twig', $data);
 

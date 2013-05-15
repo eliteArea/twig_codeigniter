@@ -39,20 +39,21 @@ class Twig
             $loader = new Twig_Loader_Filesystem($this->_template_dir);
             
             
-            //$this->_twig_conf = array( 'cache'=> $this->_cache_dir , 'debug'=> $debug );
             if( $this->_cache ) {
-              $this->_twig_conf['cache'] = $this->_cache_dir;
+              $config['cache'] = $this->_cache_dir;
             }
             
             if( $this->_debug ) {
-              $this->_twig_conf['degug'] = $debug;
+              $config['debug'] = $this->_debug;
+            } else {
+              $config['debug'] = false;
             }
             
-            $this->_twig = new Twig_Environment($loader, $this->_twig_conf );
+            $this->_twig = new Twig_Environment($loader, $config );
             //~ $this->_twig = new Twig_Environment($loader, array(
-                //~ 'cache' => $this->_cache_dir,
-                //~ 'debug' => $debug,
-            //~ ));	
+                //~ 'debug' => true,
+            //~ ));
+            $this->_twig->addExtension(new Twig_Extension_Debug() );
 	}
 
 	public function render($template, $data = array()) {

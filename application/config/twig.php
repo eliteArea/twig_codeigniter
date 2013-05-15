@@ -10,7 +10,7 @@
 
 // enable or disable cache for twig file
 // recommendt to turn on twig cache for improte performance of application
-  $config['cache'] = true;
+  $config['cache'] = false;
   //$config['cache'] = false;
   
   

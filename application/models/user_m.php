@@ -13,11 +13,20 @@
       
       $query = $this->db->query("SELECT * FROM user");
       
+      $tmp = $query->result();
       
+      $tmp = array();
       foreach( $query->result() as $row )
       {
-        var_dump( $row->name );
+        $rows['name'] = $row->name;
+        $rows['uid'] = $row->uid;
+        $rows['date'] = $row->date;
+        $rows['age'] = $row->age;
+        $rows['type'] = $row->type;
+        array_push( $tmp ,$rows );
       }
+
+      return $tmp;
       
     }
     
