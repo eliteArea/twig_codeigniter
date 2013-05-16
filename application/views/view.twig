@@ -5,8 +5,33 @@
 
 <p> title je : {{ title }} </p>
 
-{{ dump('test')  }}
 
 <p>posle kesiranja</p>
 
 <p class="footer">Page rendered in <strong>{{ elapsed_time }}</strong> seconds , Memmory used: <strong>{{ memory_usage }}</strong> </p>
+
+
+
+{% autoescape 'html' %}
+  {{ content|raw }}
+{% endautoescape %}
+
+
+{{ dump(query) }}
+
+
+  {% for data in query %}
+    <h2>User info</h2>
+    <ul>
+      <li>{{ data.name|e }}</li>
+      <li>{{ data.uid }}</li>
+      {{ data.date }}
+      <li>{{ data.date|date("m/d/Y H:m:s") }}</li>
+      
+      <li>{{ data.date|date_modify("+1 day")|date("m/d/Y H:m:s") }}</li>
+      
+      <li>{{ data.age }}</li>
+      <li>{{ data.type }}</li>
+    </ul>
+  {% endfor %}
+  

@@ -1,19 +1,32 @@
 <?php if (!defined('BASEPATH')) exit('No direct script access allowed');
 
-//tempalte directory for twig file
+/*
+| Twig config file
+*/
+
+/*
+| Tempalte directory for twig view file
+*/
   $config['template_dir'] = APPPATH.'views';
 
 
-//$config['cache_dir'] = BASEPATH.'cache/twig';
+/*
+| Config directory
+| $config['cache_dir'] = BASEPATH.'cache/twig';
+*/
   $config['cache_dir'] = APPPATH.'cache/twig';
 
 
-// enable or disable cache for twig file
-// recommendt to turn on twig cache for improte performance of application
+/*
+| Enable or disable cache for twig file
+| Recommendt to turn on twig cache for improte performance of application
+*/
   $config['cache'] = false;
   //$config['cache'] = false;
-  
-  
-//debug mode
+
+
+/*
+| Debug mode
+*/
   $config['debug'] = true;
   //$config['debug'] = false;

@@ -15,6 +15,9 @@ class Welcome extends CI_Controller {
     $data['query'] = $this->user_m->listing();
     
   //render template
+    $test['title'] = 'dex';
+    $data['content'] = $this->twig->render('node.twig' , $test );
+    
     $this->twig->display('view.twig', $data);
 
     //$this->load->view('welcome_message' , $data );

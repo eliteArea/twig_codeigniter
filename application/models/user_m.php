@@ -13,8 +13,8 @@
       
       $query = $this->db->query("SELECT * FROM user");
       
-      $tmp = $query->result();
-      
+      //$obj->values:protected->uid->language->value;
+      //print_r( $tmp[0]->uid->__get('value'));die;
       $tmp = array();
       foreach( $query->result() as $row )
       {
@@ -25,7 +25,7 @@
         $rows['type'] = $row->type;
         array_push( $tmp ,$rows );
       }
-
+      
       return $tmp;
       
     }
