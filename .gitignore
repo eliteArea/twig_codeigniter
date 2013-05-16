@@ -4,3 +4,5 @@
 */cache/*
 */cache/!index.html
 application/config/database.php
+application/cache/
+application/cache/*
