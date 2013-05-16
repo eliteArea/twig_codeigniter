@@ -1,5 +1,4 @@
 <?php if (!defined('BASEPATH')) exit('No direct script access allowed');
-
 /*
 | Twig config file
 */
@@ -21,9 +20,8 @@
 | Enable or disable cache for twig file
 | Recommendt to turn on twig cache for improte performance of application
 */
-  $config['cache'] = false;
+  $config['cache'] = true;
   //$config['cache'] = false;
-
 
 /*
 | Debug mode
