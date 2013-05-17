@@ -4,6 +4,7 @@ echo 'Clearing template cache...';
 
 basePath();
 
+
 switch( $argv[2] ) {
   case 'all':
     clearCache();
@@ -28,18 +29,20 @@ function deleteDir($dirPath) {
   $files = new RecursiveIteratorIterator($it,
                RecursiveIteratorIterator::CHILD_FIRST);
   echo "\n";
+    //echo "\n unchanged -> Cache already cleared!";
   foreach($files as $file) {
-      if ($file->getFilename() === '.' || $file->getFilename() === '..') {
-          continue;
-      }
-      if ($file->isDir()){
-          echo "\n" . $file;
-          rmdir($file->getRealPath());
-      } else {
-          echo "\n" . $file;
-          unlink($file->getRealPath());
-      }
+    if ($file->getFilename() === '.' || $file->getFilename() === '..') {
+      continue;
+    }
+    if ($file->isDir()){
+      echo "\n success -> {$file}";
+      rmdir($file->getRealPath());
+    } else {
+      echo "\n success -> {$file} success";
+      unlink($file->getRealPath());
+    }
   }
+  
   echo "\n";
   
 }
