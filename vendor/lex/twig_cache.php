@@ -8,7 +8,6 @@ basePath();
 switch( $argv[2] ) {
   case 'all':
     clearCache();
-    echo "\nAll Caches cleared.";
     break;
 }
 
@@ -24,6 +23,7 @@ function basePath() {
 
 function deleteDir($dirPath) {
   
+  $emptycheck = "\n Unchanged -> Cache already cleared!";
   $dir = $dirPath;
   $it = new RecursiveDirectoryIterator($dir);
   $files = new RecursiveIteratorIterator($it,
@@ -38,11 +38,11 @@ function deleteDir($dirPath) {
       echo "\n success -> {$file}";
       rmdir($file->getRealPath());
     } else {
-      echo "\n success -> {$file} success";
+      echo "\n success -> {$file}";
       unlink($file->getRealPath());
     }
+    $emptycheck = "\n \nAll Caches cleared.";
   }
-  
-  echo "\n";
+  echo $emptycheck;
   
 }
